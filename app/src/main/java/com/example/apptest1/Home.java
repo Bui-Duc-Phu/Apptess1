@@ -11,9 +11,11 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.apptest1.appSetup.MyApp;
 import com.example.apptest1.databinding.ActivityHomeBinding;
 import com.example.apptest1.databinding.ActivityLoginBinding;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class Home extends AppCompatActivity {
     private ActivityHomeBinding binding;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +26,12 @@ public class Home extends AppCompatActivity {
         MyApp myApp = (MyApp) getApplicationContext();
 
         binding.token.setText(myApp.getToken());
+
+        binding.logOut.setOnClickListener(v -> {
+            mAuth.signOut();
+        });
+
+
 
 
 
